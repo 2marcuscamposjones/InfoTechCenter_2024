@@ -3,6 +3,7 @@ print("Gasoline Branch\n\n")
 
 #Import Libraries Here
 import random
+from time import sleep
 
 # Function that list gas Levels, Randomly choosing one and returning its value
 def gasLevelGauge():
@@ -21,8 +22,12 @@ def listOfGasStations():
 def gasLevelAlert():
     milesToGasStationsLow = round(random.uniform(1,25),1)
     milesToGasStationsQuarterTank = round(random.uniform(25.1,50),1)
-    #gasLevelGauge = gasLevelGauge()
-    print(milesToGasStationsLow)
-    print(milesToGasStationsQuarterTank)
+    gasLevelIndicator = gasLevelGauge()
+    if gasLevelIndicator == "Empty":
+        print("***WARNING - YOU ARE ON EMPTY***")
+        sleep(1.25)
+        print("Calling Triple AAA")
+
+
 
 gasLevelAlert()
